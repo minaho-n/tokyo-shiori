@@ -118,8 +118,9 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
 
 /* Collapsible note */
 .note{position:relative;}
-.note-lbl{display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;}
-.note-chev{font-size:11px;color:var(--ac);transition:transform 0.25s ease;opacity:0.7;}
+.note-toggle{position:absolute;top:14px;right:14px;background:none;border:none;cursor:pointer;padding:6px;display:flex;align-items:center;justify-content:center;opacity:0.5;transition:opacity 0.15s;}
+.note-toggle:hover{opacity:1;}
+.note-chev{font-size:14px;color:var(--ac);transition:transform 0.25s ease;}
 .note.col .note-chev{transform:rotate(-90deg);}
 .note-txt{max-height:1000px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease,margin-top 0.25s ease;opacity:1;}
 .note.col .note-txt{max-height:0;opacity:0;margin-top:0;}
@@ -154,7 +155,7 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
   <div class="hero-r">
     <div class="hero-lbl">Tokyo · 東京 · a day in the city</div>
     <h1 class="hero-t">One day in old Tokyo</h1>
-    <p class="hero-sub">Herons at dawn, tofu at noon, old books by dusk — a day crafted for the curious, the quiet, and the wonderfully unhurried.</p>
+    <p class="hero-sub">Herons at dawn, tofu at noon, old books by dusk — a day crafted for you.</p>
     <div class="hero-pills">
       <span class="pill jp">蔵前 Kuramae</span>
       <span class="pill jp">谷根千 Yanesen</span>
@@ -165,8 +166,8 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
 </header>
 
 <div class="note" id="noteBox">
-  <div class="note-lbl" onclick="document.getElementById('noteBox').classList.toggle('col')">A note from us<i class="ti ti-chevron-down note-chev"></i></div>
-  <p class="note-txt">Dear Manasvi,<br><br>Three weeks in Japan is a gift you've given yourself, and this day is ours to you. We've tried to trace a path through a Tokyo that moves at its own quiet pace — where mornings belong to coffee and considered things, afternoons to old lanes and patient birds, and evenings to books and the kind of places that stay with you long after you've left.<br><br>Go slowly. Follow what interests you. And know that we're thinking of you, happily wandering.</p>
+  <button class="note-toggle" onclick="document.getElementById('noteBox').classList.toggle('col')" aria-label="Toggle note"><i class="ti ti-chevron-down note-chev"></i></button>
+  <p class="note-txt">Dear Manasvi,<br><br>Okay so — happy 28th. We wanted to do something nice for you and somehow ended up building an entire website. That's how much we love you.<br><br>This is a day we planned properly: the coffee, the birds, the bookshops, even a backup café in case the first one's closed. Go slow, follow what catches your eye, and don't skip Jimbocho in the evening.<br><br>Seriously though — have the best trip.<br><br>Love,<br>Manish and Minaho</p>
 </div>
 
 <nav class="tabs">
@@ -183,7 +184,7 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
 <section class="area">
   <div class="area-h">
     <div class="area-num">Morning · area 01</div>
-    <div class="area-nm"><span class="area-jp jp">蔵前</span><span class="area-en">Kuramae & Asakusa</span></div>
+    <div class="area-nm"><span class="area-jp jp">蔵前</span><span class="area-en">Kuramae</span></div>
     <div class="area-vibe">Artisan Tokyo — craft shops, specialty coffee, and a slow start to the day</div>
     <div class="area-deco jp">蔵</div>
   </div>
@@ -258,18 +259,9 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
       </div>
     </div>
   </div>
-
-  <div class="stop">
-    <div class="sg"><div class="sdot"></div></div>
-    <div>
-      <div class="sn"><a href="https://www.google.com/maps/search/?api=1&query=Asakusa+Sensoji+Tokyo" class="nl" target="_blank" rel="noopener">Asakusa drift</a></div>
-      <div class="sjp jp">浅草</div>
-      <div class="sd">No agenda needed here. Let the Kaminarimon gate, the incense smoke from Senso-ji, and the Nakamise street wash over you. Loud and alive — a good counterpoint to Kuramae's quiet. Walk through, absorb it, and move on when you're ready.</div>
-    </div>
-  </div>
 </section>
 
-<div class="trans"><i class="ti ti-map-2"></i>From Asakusa, take the Ginza Line or a short walk north toward Ueno and Yanaka — around 20–30 minutes depending on your pace.</div>
+<div class="trans"><i class="ti ti-map-2"></i>From Kuramae, around 20–25 minutes to Yanesen — Google Maps will route you via the closest line depending on your destination.</div>
 
 <!-- AREA 2: YANESEN -->
 <section class="area">
@@ -375,7 +367,7 @@ body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman'
   </div>
 </section>
 
-<div class="trans"><i class="ti ti-map-2"></i>From Yanaka, take the Tokyo Metro to Jimbocho — roughly 20–25 minutes via the Chiyoda Line.</div>
+<div class="trans"><i class="ti ti-map-2"></i>From Yanesen to Jimbocho — around 20–25 minutes by metro, with one transfer. Google Maps will pick the cleanest route.</div>
 
 <!-- AREA 3: JIMBOCHO -->
 <section class="area">
