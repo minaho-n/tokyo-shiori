@@ -523,15 +523,17 @@ function sel(c){
 function showTab(id){
   document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('act',t.dataset.tab===id);});
   document.querySelectorAll('.tab-pane').forEach(function(p){p.classList.toggle('act',p.id==='pane-'+id);});
-  if(history.replaceState){history.replaceState(null,'','#'+id);}
-  var tabs=document.querySelector('.tabs');
-  if(tabs){
-    var rect=tabs.getBoundingClientRect();
-    var target=window.pageYOffset+rect.top;
-    if(window.pageYOffset>target){
-      window.scrollTo({top:target,behavior:'smooth'});
-    }
-  }
+  try{if(history.replaceState){history.replaceState(null,'','#'+id);}}catch(e){}
+  // Scroll so the new pane starts just below the sticky tab strip.
+  // Use rAF so we measure after the pane has rendered.
+  requestAnimationFrame(function(){
+    var pane=document.getElementById('pane-'+id);
+    var tabs=document.querySelector('.tabs');
+    if(!pane||!tabs)return;
+    var tabsH=tabs.offsetHeight;
+    var paneTop=pane.getBoundingClientRect().top+window.pageYOffset;
+    window.scrollTo({top:Math.max(0,paneTop-tabsH),behavior:'smooth'});
+  });
 }
 (function(){
   var h=(location.hash||'').replace('#','');
