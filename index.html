@@ -524,7 +524,14 @@ function showTab(id){
   document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('act',t.dataset.tab===id);});
   document.querySelectorAll('.tab-pane').forEach(function(p){p.classList.toggle('act',p.id==='pane-'+id);});
   if(history.replaceState){history.replaceState(null,'','#'+id);}
-  window.scrollTo({top:0,behavior:'smooth'});
+  var tabs=document.querySelector('.tabs');
+  if(tabs){
+    var rect=tabs.getBoundingClientRect();
+    var target=window.pageYOffset+rect.top;
+    if(window.pageYOffset>target){
+      window.scrollTo({top:target,behavior:'smooth'});
+    }
+  }
 }
 (function(){
   var h=(location.hash||'').replace('#','');
