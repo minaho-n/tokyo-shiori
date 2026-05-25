@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅のしおり — One Day in Old Tokyo</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{--ac:#C84B2F;--ac-bg:rgba(200,75,47,0.07);--ac-br:rgba(200,75,47,0.28);--gd:#8A6320;--gd-bg:rgba(138,99,32,0.07);--sg:#3A5E32;--bg:#F4EDD8;--card:#EBE0C4;--ink:#1A1710;--ink2:#4A4435;--ink3:#8A7A60;--border:#C8B499;--border-l:rgba(168,148,108,0.3);}
+@media(prefers-color-scheme:dark){:root{--ac:#E07055;--ac-bg:rgba(224,112,85,0.12);--ac-br:rgba(224,112,85,0.28);--gd:#C49A40;--gd-bg:rgba(196,154,64,0.12);--sg:#5A8F50;--bg:#1C1A16;--card:#262218;--ink:#F0E8D8;--ink2:#C8B89A;--ink3:#8A7A60;--border:#3A3426;--border-l:rgba(80,68,48,0.5);}}
+.jp{font-family:'YuMincho','游明朝','Hiragino Mincho ProN','HG明朝E','MS PMincho',Georgia,serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;-webkit-font-smoothing:antialiased;line-height:1.6;}
+.sw{max-width:760px;margin:0 auto;padding:2rem 2rem 4rem;}
+
+.hero{padding:2.5rem 0 2rem;border-bottom:0.5px solid var(--border);position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;}
+.hero-jp{font-family:'YuMincho','游明朝','Hiragino Mincho ProN',Georgia,serif;writing-mode:vertical-rl;font-size:3rem;font-weight:400;letter-spacing:0.2em;color:var(--ink);line-height:1;}
+.hero-r{display:flex;flex-direction:column;gap:0.75rem;padding-top:4px;}
+.hero-lbl{font-size:12px;letter-spacing:0.15em;color:var(--ac);font-family:Georgia,serif;}
+.hero-t{font-family:Georgia,'Times New Roman',serif;font-size:2.4rem;font-weight:400;font-style:italic;line-height:1.1;color:var(--ink);}
+.hero-sub{font-family:Georgia,serif;font-size:15px;font-style:italic;color:var(--ink2);line-height:1.65;max-width:460px;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.pill{font-size:12px;padding:4px 14px;border:0.5px solid var(--ac);color:var(--ac);border-radius:0;font-family:'YuMincho','游明朝',Georgia,serif;}
+.hero-deco{position:absolute;right:-8px;bottom:-16px;font-family:'YuMincho','游明朝',Georgia,serif;font-size:9rem;font-weight:400;color:var(--ac);opacity:0.06;line-height:1;pointer-events:none;user-select:none;}
+
+.note{margin:2.5rem 0;padding:1.75rem 2rem;background:var(--card);border-left:2px solid var(--ac);border-radius:0;}
+.note-lbl{font-size:11px;letter-spacing:0.22em;color:var(--ac);margin-bottom:0.75rem;font-family:Georgia,serif;}
+.note-txt{font-family:Georgia,serif;font-size:15px;font-style:italic;color:var(--ink2);line-height:1.9;}
+
+.area{margin:3rem 0;}
+.area-h{padding-bottom:1rem;border-bottom:0.5px solid var(--border);margin-bottom:1.75rem;position:relative;overflow:hidden;}
+.area-num{font-size:11px;letter-spacing:0.22em;color:var(--ac);margin-bottom:5px;font-family:Georgia,serif;}
+.area-nm{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.area-jp{font-family:'YuMincho','游明朝','Hiragino Mincho ProN',Georgia,serif;font-size:2.6rem;font-weight:400;letter-spacing:0.12em;color:var(--ink);line-height:1;}
+.area-en{font-family:Georgia,serif;font-size:1.4rem;font-style:italic;color:var(--ink2);}
+.area-vibe{font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--ink3);margin-top:8px;}
+.area-deco{position:absolute;right:-4px;top:-20px;font-family:'YuMincho','游明朝',Georgia,serif;font-size:7rem;font-weight:400;color:var(--ac);opacity:0.05;line-height:1;pointer-events:none;user-select:none;}
+
+.stop{display:grid;grid-template-columns:14px 1fr;gap:0 16px;padding:1.25rem 0;border-bottom:0.5px solid var(--border-l);align-items:start;}
+.stop:last-of-type{border-bottom:none;}
+.sg{display:flex;flex-direction:column;align-items:center;padding-top:5px;}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--ac);flex-shrink:0;}
+.sln{width:1px;flex:1;min-height:28px;background:var(--border-l);margin-top:5px;}
+.sn{font-size:16px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.sjp{font-family:'YuMincho','游明朝',Georgia,serif;font-size:12px;color:var(--ink3);margin-bottom:5px;margin-top:2px;}
+.sd{font-family:Georgia,serif;font-size:14px;font-style:italic;color:var(--ink2);line-height:1.75;}
+.stip{margin-top:10px;padding:9px 14px;background:var(--gd-bg);border-left:2px solid var(--gd);border-radius:0;font-size:13px;color:var(--ink2);line-height:1.55;font-family:Georgia,serif;}
+
+.opts-blk{margin:1.5rem 0;padding:1.5rem 1.75rem;background:var(--card);border-top:2px solid var(--ac);border-radius:0;}
+.opts-lbl{font-size:11px;letter-spacing:0.18em;color:var(--ac);margin-bottom:1rem;font-family:Georgia,serif;}
+.opts-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
+.opt{padding:14px 16px;border:0.5px solid var(--border);background:var(--bg);cursor:pointer;border-radius:4px;transition:border-color 0.15s,background 0.15s;}
+.opt:hover{border-color:var(--ac-br);}
+.opt.sel{border-color:var(--ac);background:var(--ac-bg);box-shadow:inset 0 0 0 0.5px var(--ac);}
+.opt-h{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px;}
+.opt-n{font-size:14px;font-weight:600;color:var(--ink);flex:1;line-height:1.3;display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-family:Georgia,serif;}
+.opt-r{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.chk{width:15px;height:15px;border-radius:3px;border:0.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
+.opt.sel .chk{background:var(--ac);border-color:var(--ac);}
+.chk::after{content:'';width:7px;height:4px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px);opacity:0;transition:opacity 0.15s;}
+.opt.sel .chk::after{opacity:1;}
+.opt-d{font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--ink2);line-height:1.55;}
+.otags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.otag{font-size:11px;padding:2px 9px;border:0.5px solid;border-radius:4px;font-family:Georgia,serif;}
+.otag-c{color:#5C3A1E;border-color:#5C3A1E;}
+.otag-s{border-color:var(--gd);color:var(--gd);}
+.otag-p{color:#3A5C8A;border-color:#3A5C8A;}
+@media(prefers-color-scheme:dark){.otag-c{color:#C4916A;border-color:#C4916A;}.otag-p{color:#7AAAD4;border-color:#7AAAD4;}}
+
+.ml{display:inline-flex;align-items:center;color:var(--ink3);text-decoration:none;opacity:0.45;transition:opacity 0.15s,color 0.15s;line-height:1;}
+.ml:hover{opacity:1;color:var(--ac);}.nl{color:inherit;text-decoration:none;border-bottom:0.5px solid var(--border);padding-bottom:1px;transition:color 0.15s,border-color 0.15s;}
+.nl:hover{color:var(--ac);border-bottom-color:var(--ac);}
+.opt-n .nl{display:inline;}
+
+.trans{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:var(--gd-bg);border:0.5px solid rgba(138,99,32,0.22);border-radius:4px;font-size:13px;color:var(--ink2);margin:-1.5rem 0 0;font-family:Georgia,serif;}
+.trans i{color:var(--gd);flex-shrink:0;margin-top:2px;font-size:16px;}
+
+.supp{margin:3rem 0;}
+.supp-h{display:flex;align-items:center;gap:14px;margin-bottom:1.5rem;}
+.supp-t{font-size:11px;letter-spacing:0.22em;color:var(--ink3);white-space:nowrap;display:flex;align-items:center;gap:7px;font-family:Georgia,serif;}
+.supp-l{flex:1;height:0.5px;background:var(--border);}
+
+.vi{padding:1rem 0;border-bottom:0.5px solid var(--border-l);font-size:14px;color:var(--ink2);line-height:1.7;font-family:Georgia,serif;}
+.vi:last-child{border-bottom:none;}
+.vi strong{display:block;font-weight:700;color:var(--ink);font-size:14px;margin-bottom:3px;}
+
+.ba{margin-bottom:1.75rem;}
+.ba-t{font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--ink3);padding-bottom:8px;border-bottom:0.5px solid var(--border-l);margin-bottom:12px;}
+.bg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;}
+.bc{padding:12px 16px;background:var(--card);border-top:2px solid var(--sg);border-radius:0 0 4px 4px;}
+.bc-hy{border-top-color:#7A6FA8;}
+@media(prefers-color-scheme:dark){.bc-hy{border-top-color:#9A8FC8;}}
+.ben{font-size:14px;font-weight:600;color:var(--ink);font-family:Georgia,serif;}
+.bjp{font-family:'YuMincho','游明朝',Georgia,serif;font-size:12px;color:var(--ink3);}
+.bnt{font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--ink2);line-height:1.4;margin-top:3px;}
+
+.phrase-cat{font-size:11px;letter-spacing:0.18em;color:var(--ac);margin:1.5rem 0 0.75rem;font-family:Georgia,serif;}
+.pr{display:grid;grid-template-columns:2fr 2fr 2fr;gap:12px;padding:0.8rem 0;border-bottom:0.5px solid var(--border-l);}
+.pr:last-child{border-bottom:none;}
+.pj{font-family:'YuMincho','游明朝',Georgia,serif;font-size:15px;color:var(--ink);line-height:1.5;}
+.pm{font-family:Georgia,serif;font-size:12px;font-style:italic;color:var(--ink3);line-height:1.5;}
+.pe{font-size:12px;color:var(--ink2);line-height:1.5;font-family:Georgia,serif;}
+
+.footer{margin-top:4rem;padding-top:2rem;border-top:0.5px solid var(--border);text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.ft-jp{font-family:'YuMincho','游明朝',Georgia,serif;font-size:1.8rem;color:var(--ac);opacity:0.35;letter-spacing:0.5em;padding-left:0.5em;}
+.ft-t{font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--ink3);}
+
+@media(max-width:560px){
+  .sw{padding:1.5rem 1.25rem 3rem;}
+  .hero{grid-template-columns:1fr;}
+  .hero-jp{writing-mode:horizontal-tb;font-size:2.2rem;}
+  .hero-deco{font-size:6rem;}
+  .area-jp{font-size:2rem;}
+  .pr{grid-template-columns:1fr 1fr;}
+  .pm{display:none;}
+  .opts-g{grid-template-columns:1fr;}
+}
+
+/* Collapsible note */
+.note{position:relative;}
+.note-lbl{display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;}
+.note-chev{font-size:11px;color:var(--ac);transition:transform 0.25s ease;opacity:0.7;}
+.note.col .note-chev{transform:rotate(-90deg);}
+.note-txt{max-height:1000px;overflow:hidden;transition:max-height 0.35s ease,opacity 0.25s ease,margin-top 0.25s ease;opacity:1;}
+.note.col .note-txt{max-height:0;opacity:0;margin-top:0;}
+
+/* Tabs */
+.tabs{position:sticky;top:0;z-index:20;background:var(--bg);margin:0 -2rem 2rem;padding:1rem 2rem 0;border-bottom:0.5px solid var(--border);}
+.tabs-inner{display:flex;gap:0;align-items:flex-end;}
+.tab{flex:1;background:none;border:none;cursor:pointer;padding:14px 8px 12px;color:var(--ink3);font-family:Georgia,serif;text-align:center;border-bottom:1.5px solid transparent;transition:color 0.15s,border-color 0.15s;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.tab:hover{color:var(--ink2);}
+.tab.act{color:var(--ac);border-bottom-color:var(--ac);}
+.tab-jp{font-family:'YuMincho','游明朝','Hiragino Mincho ProN',Georgia,serif;font-size:18px;letter-spacing:0.18em;font-weight:400;line-height:1;}
+.tab-en{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-style:italic;line-height:1;}
+.tab-pane{display:none;}
+.tab-pane.act{display:block;}
+.tab-pane > *:first-child{margin-top:0;}
+.tab-pane .area:first-child{margin-top:0;}
+.tab-pane .supp:first-child{margin-top:0;}
+
+@media(max-width:560px){
+  .tabs{margin:0 -1.25rem 1.5rem;padding:0.5rem 1.25rem 0;}
+  .tab{padding:12px 4px 10px;}
+  .tab-jp{font-size:16px;letter-spacing:0.12em;}
+  .tab-en{font-size:10px;}
+}
+</style>
+</head>
+<body>
+<div class="sw">
+
+<header class="hero">
+  <div class="hero-jp jp">旅のしおり</div>
+  <div class="hero-r">
+    <div class="hero-lbl">Tokyo · 東京 · a day in the city</div>
+    <h1 class="hero-t">One day in old Tokyo</h1>
+    <p class="hero-sub">Herons at dawn, tofu at noon, old books by dusk — a day crafted for the curious, the quiet, and the wonderfully unhurried.</p>
+    <div class="hero-pills">
+      <span class="pill jp">蔵前 Kuramae</span>
+      <span class="pill jp">谷根千 Yanesen</span>
+      <span class="pill jp">神保町 Jimbocho</span>
+    </div>
+  </div>
+  <div class="hero-deco jp">旅</div>
+</header>
+
+<div class="note" id="noteBox">
+  <div class="note-lbl" onclick="document.getElementById('noteBox').classList.toggle('col')">A note from us<i class="ti ti-chevron-down note-chev"></i></div>
+  <p class="note-txt">Dear Manasvi,<br><br>Three weeks in Japan is a gift you've given yourself, and this day is ours to you. We've tried to trace a path through a Tokyo that moves at its own quiet pace — where mornings belong to coffee and considered things, afternoons to old lanes and patient birds, and evenings to books and the kind of places that stay with you long after you've left.<br><br>Go slowly. Follow what interests you. And know that we're thinking of you, happily wandering.</p>
+</div>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab act" data-tab="itin" onclick="showTab('itin')"><span class="tab-jp jp">一日</span><span class="tab-en">The Day</span></button>
+    <button class="tab" data-tab="nat" onclick="showTab('nat')"><span class="tab-jp jp">自然</span><span class="tab-en">Birds & Blooms</span></button>
+    <button class="tab" data-tab="ph" onclick="showTab('ph')"><span class="tab-jp jp">言葉</span><span class="tab-en">Phrases</span></button>
+  </div>
+</nav>
+
+<div class="tab-pane act" id="pane-itin">
+
+<!-- AREA 1: KURAMAE -->
+<section class="area">
+  <div class="area-h">
+    <div class="area-num">Morning · area 01</div>
+    <div class="area-nm"><span class="area-jp jp">蔵前</span><span class="area-en">Kuramae & Asakusa</span></div>
+    <div class="area-vibe">Artisan Tokyo — craft shops, specialty coffee, and a slow start to the day</div>
+    <div class="area-deco jp">蔵</div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">Morning coffee & breakfast</div>
+    <div class="opts-g">
+      <div class="opt" data-group="k-morn" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/Bvkx4DGycnEKSnew8" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Nui. Hostel & Bar</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Design hostel café open to all — a natural spot for good breakfast and meeting fellow travellers</div>
+        <div class="otags"><span class="otag otag-p">Fellow travellers</span></div>
+      </div>
+      <div class="opt" data-group="k-morn" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/2Ns9ZRGNVuFM8evn9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Lucent Coffee</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Bright, minimal specialty coffee with thoughtfully sourced beans — a calm and considered start</div>
+        <div class="otags"><span class="otag otag-c">Specialty coffee</span></div>
+      </div>
+      <div class="opt" data-group="k-morn" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/RxudmeJ1piEcCpXJ9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Sol's Coffee Roastery</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Small-batch roasting in a warm Kuramae space — a neighbourhood favourite for serious coffee</div>
+        <div class="otags"><span class="otag otag-c">Specialty coffee</span></div>
+      </div>
+      <div class="opt" data-group="k-morn" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/ZuqJKoQucopUedj5A" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">JULLEY Chai Stand & Bake</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Indian chai and fresh bakes in the heart of Kuramae — a little warmth from home to start the day</div>
+        <div class="otags"><span class="otag otag-s">Chai</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/dUeGY4m7f3D36z548" class="nl" target="_blank" rel="noopener">Kakimori</a></div>
+      <div class="sjp jp">カキモリ</div>
+      <div class="sd">A Kuramae institution where you design and bind your own notebook — choosing cover, paper type, and binding from a carefully curated selection. The result is a one-of-a-kind journal that will outlast the trip.</div>
+      <div class="stip">Allow at least an hour. The custom ink-blending service is popular — check if the booking is required (it seems booking is required on weekends).</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/WJbqZ9WDfo5WzCbD6" class="nl" target="_blank" rel="noopener">Kuramae boutique walk</a></div>
+      <div class="sd">Tokyo's artisan quarter — a neighbourhood of small-batch makers and considered design. Browse SyuRo for refined tin and leather goods, and Koncent for beautifully designed everyday objects.</div>
+      <div class="stip">Closing days vary shop by shop in Kuramae — many small boutiques are shut one weekday (often Tuesday or Wednesday). Worth checking in advance for any specific shop you want to visit.</div>
+    </div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">Snack or café</div>
+    <div class="opts-g">
+      <div class="opt" data-group="k-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/sKgVTukmDbDn7RqZ6" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Dandelion Chocolate</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Bean-to-bar chocolate café with a beautiful Kuramae outpost. Single-origin hot chocolate and seasonal pastries. $$$</div>
+        <div class="otags"><span class="otag otag-s">Treat yourself</span></div>
+      </div>
+      <div class="opt" data-group="k-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/Y1yvHvVLoWuELgkH8" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Shinonome Seipansho</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A quiet neighbourhood bakery with excellent bread and coffee — understated and lovely</div>
+        <div class="otags"><span class="otag otag-s">Bakery</span></div>
+      </div>
+      <div class="opt" data-group="k-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/wGybECgkgKyYmp3WA" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">CAMERA</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Small, design-forward café tucked into the Kuramae backstreets — good coffee, slow pace</div>
+        <div class="otags"><span class="otag otag-c">Specialty coffee</span></div>
+      </div>
+      <div class="opt" data-group="k-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/XSnPgvR9VbWqFGY67" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">hamorebi coffee</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Named for the Japanese word for sunlight filtering through leaves — gentle, green, and calm</div>
+        <div class="otags"><span class="otag otag-c">Coffee</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div></div>
+    <div>
+      <div class="sn"><a href="https://www.google.com/maps/search/?api=1&query=Asakusa+Sensoji+Tokyo" class="nl" target="_blank" rel="noopener">Asakusa drift</a></div>
+      <div class="sjp jp">浅草</div>
+      <div class="sd">No agenda needed here. Let the Kaminarimon gate, the incense smoke from Senso-ji, and the Nakamise street wash over you. Loud and alive — a good counterpoint to Kuramae's quiet. Walk through, absorb it, and move on when you're ready.</div>
+    </div>
+  </div>
+</section>
+
+<div class="trans"><i class="ti ti-map-2"></i>From Asakusa, take the Ginza Line or a short walk north toward Ueno and Yanaka — around 20–30 minutes depending on your pace.</div>
+
+<!-- AREA 2: YANESEN -->
+<section class="area">
+  <div class="area-h">
+    <div class="area-num">Afternoon · area 02</div>
+    <div class="area-nm"><span class="area-jp jp">谷根千</span><span class="area-en">Yanesen</span></div>
+    <div class="area-vibe">Old Tokyo lanes, temple cats, patient birds, and the warmth of an afternoon well spent</div>
+    <div class="area-deco jp">谷</div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">Lunch</div>
+    <div class="opts-g">
+      <div class="opt" data-group="y-lunch" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/NP2jBiMKSJK8cbRv6" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Tofu Room Dy's</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Dedicated tofu restaurant in Yanaka — delicate preparations of silken and firm tofu with seasonal vegetables</div>
+        <div class="otags"><span class="otag otag-s">Tofu</span></div>
+      </div>
+      <div class="opt" data-group="y-lunch" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/aAqXtMJWudenJg7p7" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">CIBI</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Melbourne-born café with a Tokyo outpost — simple, beautiful food with a familiar warmth. A little piece of home.</div>
+        <div class="otags"><span class="otag otag-s">Melbourne roots</span></div>
+      </div>
+      <div class="opt" data-group="y-lunch" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/eNySw8VoBwH6N6qG9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Nezunoya</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Traditional Japanese home-cooking in a quiet Yanaka setting — rice dishes, pickles, and seasonal small plates</div>
+        <div class="otags"><span class="otag otag-s">Home-cooking</span></div>
+      </div>
+      <div class="opt" data-group="y-lunch" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/vXqmZapTkF1haoB77" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Yakuzen Curry Jinenjo</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Medicinal herbal curry made with mountain yam and healing herbs — unusual, nourishing, and deeply memorable</div>
+        <div class="otags"><span class="otag otag-s">Unique</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/npxZUg5U1zVd3k3x7" class="nl" target="_blank" rel="noopener">Yanaka Ginza</a></div>
+      <div class="sjp jp">谷中銀座</div>
+      <div class="sd">Tokyo's most beloved old shotengai — a covered shopping street untouched by the city's relentless change. Browse, snack, and slow down. The lanes off the main street are just as good.</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/SkvXB2qHtxLRU4Vg9" class="nl" target="_blank" rel="noopener">Shinobazu Pond</a></div>
+      <div class="sjp jp">不忍池 · 上野恩賜公園</div>
+      <div class="sd">One of Tokyo's finest urban birding spots. Grey herons stand motionless in the shallows. Little egrets drift overhead. Great cormorants dry their wings on wooden posts. Walk the path around the pond and let the city fade out.</div>
+      <div class="stip">Walk slowly around the perimeter — herons and egrets often stand motionless in the shallows. Bring binoculars if you have them.</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/gSRA9oNVgUAyzxez8" class="nl" target="_blank" rel="noopener">Yanaka Cemetery</a></div>
+      <div class="sjp jp">谷中霊園</div>
+      <div class="sd">Far more beautiful than it sounds — mossy paths, old cherry trees, and woodland birds moving through the canopy. Brown-eared bulbuls, Japanese white-eyes, and barn swallows call from the branches.</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/fYKt6BZGNzdXvV7UA" class="nl" target="_blank" rel="noopener">Nezu Shrine</a></div>
+      <div class="sjp jp">根津神社</div>
+      <div class="sd">One of Tokyo's most beautiful shrines. A long winding tunnel of vermillion torii gates through forested grounds — far quieter than Kyoto's Fushimi Inari, and all the better for it. The woodland is wonderful for small birds too.</div>
+    </div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">Afternoon snack or café</div>
+    <div class="opts-g">
+      <div class="opt" data-group="y-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/rC5GzA9mdYMmt2FSA" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Nito</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A quiet, considered café in Yanaka — good coffee and simple Japanese sweets in a calm setting</div>
+        <div class="otags"><span class="otag otag-c">Coffee</span></div>
+      </div>
+      <div class="opt" data-group="y-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/eQ2Ki93g1EV4k3Y38" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Think</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Beloved local bakery with excellent bread and pastries — a Yanaka favourite worth seeking out</div>
+        <div class="otags"><span class="otag otag-s">Bakery</span></div>
+      </div>
+      <div class="opt" data-group="y-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/zTxWfMgBL3mYvWi46" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Hagiso</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Former artist's atelier turned café-gallery — seasonal small plates and good coffee in one of Yanaka's most beautiful spaces</div>
+        <div class="otags"><span class="otag otag-s">Gallery</span></div>
+      </div>
+      <div class="opt" data-group="y-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/p6vnKNyENumgHoDHA" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Kayaba Coffee</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A kissaten since 1938 — worn wooden interior, gentle light. Order the toast and egg set and sit as long as you like.</div>
+        <div class="otags"><span class="otag otag-c">Kissaten</span></div>
+      </div>
+      <div class="opt" data-group="y-snack" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/B4HZ56TGAe9g3U286" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Matcha & Espresso Miyano-yu</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Specialty matcha and espresso in a converted bathhouse — a genuinely beautiful and unusual space</div>
+        <div class="otags"><span class="otag otag-s">Converted sento</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trans"><i class="ti ti-map-2"></i>From Yanaka, take the Tokyo Metro to Jimbocho — roughly 20–25 minutes via the Chiyoda Line.</div>
+
+<!-- AREA 3: JIMBOCHO -->
+<section class="area">
+  <div class="area-h">
+    <div class="area-num">Evening · area 03</div>
+    <div class="area-nm"><span class="area-jp jp">神保町</span><span class="area-en">Jimbocho</span></div>
+    <div class="area-vibe">Tokyo's booktown — old paper, strong coffee, and a very good evening</div>
+    <div class="area-deco jp">神</div>
+  </div>
+
+  <div class="stop">
+    <div class="sg"><div class="sdot"></div><div class="sln"></div></div>
+    <div>
+      <div class="sn"><a href="https://maps.app.goo.gl/DTPagMj924Tijaza9" class="nl" target="_blank" rel="noopener">Bookshop browsing</a></div>
+      <div class="sjp jp">神保町古書街</div>
+      <div class="sd">Over 170 second-hand bookshops along a single street — the world's largest concentration. Even without reading Japanese, the atmosphere is its own reward: stacks of old volumes, vintage maps and prints, specialist collectors. Walk the stretch along Yasukuni-dori before the shops close.</div>
+      <div class="stip">Most bookshops close between 18:00 and 19:00, and many are closed on Sundays. Aim to arrive by mid-to-late afternoon to browse properly.</div>
+    </div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">Dinner</div>
+    <div class="opts-g">
+      <div class="opt" data-group="j-din" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/TxNXh7ocRxRtv1P78" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Tsukemen Zuppa</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Tsukemen (dipping ramen) with an Italian-Japanese soul — rich, concentrated broth you dip thick noodles into. Memorable and distinct.</div>
+        <div class="otags"><span class="otag otag-s">Tsukemen</span></div>
+      </div>
+      <div class="opt" data-group="j-din" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/zAiUemuQRD6x4i3E9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Santosham</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">Indian food in the heart of Jimbocho — for when the day calls for something familiar and deeply warming. Well-regarded and welcoming.</div>
+        <div class="otags"><span class="otag otag-s">Indian</span></div>
+      </div>
+      <div class="opt" data-group="j-din" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/ycQrTE3p9TjVgbVb9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Ethiopia Hon Ten</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A Jimbocho institution since 1952 — their original curry is dark, complex, and unlike anything else. Vegetarian options available.</div>
+        <div class="otags"><span class="otag otag-s">Japanese Curry</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="opts-blk">
+    <div class="opts-lbl">To end the night</div>
+    <div class="opts-g">
+      <div class="opt" data-group="j-night" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/c7xmq2adj5p79XZF9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Milonga Nueva</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A tango bar and music venue — one of Tokyo's most unexpected and wonderful rooms. You don't need to dance to enjoy it.</div>
+        <div class="otags"><span class="otag otag-p">Music</span></div>
+      </div>
+      <div class="opt" data-group="j-night" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/Sj5G439WhM9VgMKn7" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Sabouru</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A legendary kissaten since 1955, with a cave-like interior unlike anywhere else in Tokyo. End the day with a strong coffee and a notebook.</div>
+        <div class="otags"><span class="otag otag-c">Kissaten</span></div>
+      </div>
+      <div class="opt" data-group="j-night" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/tZqVxrt8k5ZB5hCN8" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">Izakaya Genki Kanda</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A lively, friendly izakaya — good for a final drink and the possibility of good conversation with locals</div>
+        <div class="otags"><span class="otag otag-p">Lively</span></div>
+      </div>
+      <div class="opt" data-group="j-night" onclick="sel(this)">
+        <div class="opt-h"><span class="opt-n"><a href="https://maps.app.goo.gl/BC7xkLiGEtWpa1mn9" class="nl" target="_blank" rel="noopener" onclick="event.stopPropagation()">KARAKURI</a></span><div class="opt-r"><span class="chk"></span></div></div>
+        <div class="opt-d">A small, intimate spot in Jimbocho serving oden — Japan's beloved slow-simmered winter dish of daikon, eggs, tofu, and other morsels gently poached in a savoury dashi broth. A lovely thing to try if it's new to you.</div>
+        <div class="otags"><span class="otag otag-s">Oden</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="tab-pane" id="pane-nat">
+
+<!-- BIRDING -->
+<section class="supp">
+  <div class="supp-h"><span class="supp-t"><i class="ti ti-feather" style="font-size:14px"></i>Birding cheatsheet</span><div class="supp-l"></div></div>
+  <div class="ba">
+    <div class="ba-t">Shinobazu Pond, Ueno · <span class="jp">不忍池</span></div>
+    <div class="bg">
+      <div class="bc"><div class="ben">Grey Heron</div><div class="bjp jp">アオサギ</div><div class="bnt">Tall, slate-blue; often motionless in the shallows</div></div>
+      <div class="bc"><div class="ben">Little Egret</div><div class="bjp jp">コサギ</div><div class="bnt">Bright white, small — yellow feet give it away</div></div>
+      <div class="bc"><div class="ben">Spot-billed Duck</div><div class="bjp jp">カルガモ</div><div class="bnt">Japan's most common duck; yellow-tipped black bill</div></div>
+    </div>
+  </div>
+  <div class="ba">
+    <div class="ba-t">Yanaka Cemetery & Nezu Shrine · <span class="jp">谷中霊園・根津神社</span></div>
+    <div class="bg">
+      <div class="bc"><div class="ben">Brown-eared Bulbul</div><div class="bjp jp">ヒヨドリ</div><div class="bnt">Loud and chatty — you'll hear it before you see it</div></div>
+      <div class="bc"><div class="ben">Eurasian Tree Sparrow</div><div class="bjp jp">スズメ</div><div class="bnt">Japan's ubiquitous sparrow — cheerful and ever-present</div></div>
+    </div>
+  </div>
+  <div class="ba">
+    <div class="ba-t">Keep an eye out anywhere · <span class="jp">どこでも</span></div>
+    <div class="bg">
+      <div class="bc"><div class="ben">Large-billed Crow</div><div class="bjp jp">ハシブトガラス</div><div class="bnt">Tokyo's iconic crow — bold, intelligent, everywhere</div></div>
+    </div>
+  </div>
+  <div class="vi" style="border:none;padding:1.25rem 0 0;"><em>Lucky finds, if you're patient: Great Cormorant (<span class="jp">カワウ</span>) drying its wings on a post, Night Heron (<span class="jp">ゴイサギ</span>) roosting in pondside trees, Warbling White-eye (<span class="jp">メジロ</span>) flickering through leaves, Barn Swallow (<span class="jp">ツバメ</span>) swooping low at dusk, or — rarest of all — the electric-blue flash of a Common Kingfisher (<span class="jp">カワセミ</span>) along the water.</em></div>
+</section>
+
+<!-- HYDRANGEA -->
+<section class="supp">
+  <div class="supp-h"><span class="supp-t"><i class="ti ti-flower" style="font-size:14px"></i>If hydrangeas are in bloom</span><div class="supp-l"></div></div>
+  <div class="vi" style="border:none;padding:0 0 1.25rem;"><em>Early June is the very start of Tokyo's hydrangea (<span class="jp">紫陽花</span>, ajisai) season — some bushes may already be open, others still budding. If the bloom has started, these spots are worth seeking out. Peak is typically mid-to-late June.</em></div>
+  <div class="ba">
+    <div class="bg">
+      <div class="bc bc-hy"><div class="ben"><a href="https://www.google.com/maps/search/?api=1&query=Hakusan+Shrine+Bunkyo+Tokyo" class="nl" target="_blank" rel="noopener">Hakusan Shrine</a></div><div class="bjp jp">白山神社</div><div class="bnt">~3,000 hydrangeas; hosts the Bunkyō Ajisai Matsuri in mid-June. ~15 min walk from Nezu Shrine.</div></div>
+      <div class="bc bc-hy"><div class="ben"><a href="https://www.google.com/maps/search/?api=1&query=Asukayama+Park+Tokyo" class="nl" target="_blank" rel="noopener">Asukayama Park</a></div><div class="bjp jp">飛鳥山公園</div><div class="bnt">A famous "hydrangea slope" runs alongside the train tracks — atmospheric and free.</div></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="tab-pane" id="pane-ph">
+
+<section class="supp">
+  <div class="supp-h"><span class="supp-t"><i class="ti ti-message-2" style="font-size:14px"></i>Japanese phrases</span><div class="supp-l"></div></div>
+  <div class="phrase-cat">At restaurants</div>
+  <div class="pr"><div class="pj jp">ベジタリアンです</div><div class="pm">Bejitarian desu</div><div class="pe">I am vegetarian</div></div>
+  <div class="pr"><div class="pj jp">お肉は食べられません</div><div class="pm">Oniku wa taberaremasen</div><div class="pe">I cannot eat meat</div></div>
+  <div class="pr"><div class="pj jp">魚介類も食べられません</div><div class="pm">Gyokairui mo taberaremasen</div><div class="pe">I don't eat seafood either</div></div>
+  <div class="pr"><div class="pj jp">ベジタリアン対応のメニューはありますか？</div><div class="pm">Bejitarian taiō no menyu wa arimasu ka?</div><div class="pe">Do you have vegetarian options?</div></div>
+  <div class="pr"><div class="pj jp">これに肉や魚は入っていますか？</div><div class="pm">Kore ni niku ya sakana wa haitte imasu ka?</div><div class="pe">Does this contain meat or fish?</div></div>
+  <div class="pr"><div class="pj jp">これをください</div><div class="pm">Kore o kudasai</div><div class="pe">I'll have this, please</div></div>
+  <div class="phrase-cat" style="margin-top:1.5rem;">General</div>
+  <div class="pr"><div class="pj jp">すみません</div><div class="pm">Sumimasen</div><div class="pe">Excuse me</div></div>
+  <div class="pr"><div class="pj jp">ありがとうございます</div><div class="pm">Arigatō gozaimasu</div><div class="pe">Thank you very much</div></div>
+  <div class="pr"><div class="pj jp">おすすめはなんですか？</div><div class="pm">Osusume wa nan desu ka?</div><div class="pe">What do you recommend?</div></div>
+  <div class="pr"><div class="pj jp">写真を撮ってもいいですか？</div><div class="pm">Shashin o totte mo ii desu ka?</div><div class="pe">May I take a photo?</div></div>
+  <div class="pr"><div class="pj jp">道に迷いました</div><div class="pm">Michi ni mayoimashita</div><div class="pe">I'm lost</div></div>
+  <div class="pr"><div class="pj jp">あの鳥はなんですか？</div><div class="pm">Ano tori wa nan desu ka?</div><div class="pe">What bird is that?</div></div>
+</section>
+
+</div>
+
+<footer class="footer">
+  <div class="ft-jp jp">旅</div>
+  <div class="ft-t">Have a wonderful trip, Manasvi. 良い旅を。</div>
+</footer>
+
+</div>
+<script>
+function sel(c){
+  c.classList.toggle('sel');
+}
+function showTab(id){
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('act',t.dataset.tab===id);});
+  document.querySelectorAll('.tab-pane').forEach(function(p){p.classList.toggle('act',p.id==='pane-'+id);});
+  if(history.replaceState){history.replaceState(null,'','#'+id);}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+(function(){
+  var h=(location.hash||'').replace('#','');
+  if(['itin','nat','ph'].indexOf(h)>-1){
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('act',t.dataset.tab===h);});
+    document.querySelectorAll('.tab-pane').forEach(function(p){p.classList.toggle('act',p.id==='pane-'+h);});
+  }
+})();
+</script>
+</body>
+</html>
